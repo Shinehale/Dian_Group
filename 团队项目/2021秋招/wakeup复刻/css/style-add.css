@@ -1,0 +1,77 @@
+*{
+  margin: 0;
+  padding:0;
+}
+#addup{
+  width: 100%;
+  height: 640px;
+  overflow: auto;
+  background-color: #F4F5F7;
+}
+.header1 {
+  width: 100%;
+  height: 5%;
+}
+.header2 {
+  width: 100%;
+  height: 5%;
+  /* background-color: blue; */
+  overflow: auto;
+  padding-bottom: 10%;
+}
+.back {
+  width:8% ;
+  height: 100%;
+  background-color：#F4F5F7;
+  background-image: url(/img/addup页/arrow-left-1-icon.svg);
+  background-size: cover;
+  float: left;
+}
+.header2 p {
+  width: 75%;
+  height: 100%;
+  text-align:left;
+  font-size: 18px;
+  font-family: Cursive;
+  color: black;
+  line-height: 32px;
+  float: left;
+}
+#tijiao {
+  width: 15%;
+  height: 100%;
+  font-size: 18px;
+  color: orange;
+  border: none;
+  font-family:  Cursive;
+  margin-right: 2%;
+  background-color: #F4F5F7;
+}
+.content {
+  width: 98%;
+  height: 5%;
+  background-color;
+  overflow: auto;
+  float: left;
+  display: inline-block;
+  /* border:2px solid orange; */
+  margin-bottom: 5%;
+}
+.content img {
+  width: 25%; 
+  height: 100%;
+  float: left;
+}
+.content input {
+  width: 65%;
+  height: 32px;
+  border: none;
+  background-color: #F4F5F7;
+}
+.xian {
+  width: 100%;
+  height: 1px;
+  background-color: #D7D8DA;
+  float: left;
+  margin-bottom: 25px;
+}

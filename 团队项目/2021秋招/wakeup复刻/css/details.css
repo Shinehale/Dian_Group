@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(/img/beijing.jpg);
+  background-size: cover;
+}
+#veiwover{
+  width: 100%;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.mud{ 
+  display: none;
+  position: fixed; 
+  top: 0%; 
+  left: 0%; 
+  width: 100%; 
+  height: 100%; 
+  background-color: black; 
+  z-index:1001; 
+  -moz-opacity: 0.8; 
+  opacity:.80; 
+  filter: alpha(opacity=88); 
+} 
+.cent { 
+  display: none;
+  position: fixed; 
+  top: 25%; 
+  left: 15%; 
+  width: 70%; 
+  height: 50%; 
+  padding: 8px; 
+  border: 5px solid rgb(233, 161, 27); 
+  background-color:black; 
+  border-radius: 20px;
+  z-index:1002; 
+  overflow: left; 
+  box-sizing: border-box;
+} 
+.clname {
+  width: 100%;
+  height: 10%;
+  box-sizing: border-box;
+  /* background-color: sandybrown; */
+  margin:2% 0;  
+  font-size: 15px;
+  font-family:STZhongsong ;
+  color: white;
+}
+.content-1 {
+  width: 90%;
+  height: 15%;
+  /* background-color: seagreen; */
+  margin: 2% 5%;
+}
+.inner-1 {
+  width: 70%;
+  height: 70%;
+  /* background-color: saddlebrown; */
+  float: left;
+  font-size: 15px;
+  line-height: 23px;
+  font-family: STZhongsong;
+  margin-left: 10%;
+  color: white;
+}
+.content-1 img {
+  width: 13%;
+  float: left;
+}
+.newbt {
+  width: 100%;
+  height: 16%;
+  background-color:auto;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.btt {
+  width: 50%;
+  height: 16%;
+  float: left;
+}
+.btt img {
+  width: 20%;
+  display: inline-block;
+  margin-left:50px;
+  margin-top: 10px;
+}
+.xian {
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+}
+.mud1 {
+  display: none;
+  position: fixed; 
+  top: 0%; 
+  left: 0%; 
+  width: 100%; 
+  height: 100%; 
+  background-color: black; 
+  z-index:1003; 
+  -moz-opacity: 0.8; 
+  opacity:.80; 
+  filter: alpha(opacity=88); 
+}
+.sure {
+  display: none;
+  position: fixed; 
+  top: 35%; 
+  left: 15%; 
+  width: 70%; 
+  height: 30%; 
+  padding: 8px; 
+  border: 5px solid rgb(9, 230, 39); 
+  background-color:black; 
+  border-radius: 20px;
+  z-index:1004; 
+  overflow: left; 
+  box-sizing: border-box;
+}
+.query {
+  width: 100%;
+  height: 70%;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: YouYuan;
+  line-height: 100px;
+}
+.lower {
+  width: 100%;
+  height: 29%;
+  /* background-color: violet; */
+}
+.no {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  color: aqua;
+  font-family: YouYuan;
+  font-size:18px;
+  line-height:60px;
+  float: left;
+}
+.yes{
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  color:white;
+  font-family: YouYuan;
+  font-size:18px;
+  line-height:60px;
+  float: left;
+}
+.chag {
+  display:none;
+  width: 100%;
+  height: 20%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 1005;
+  float: left;
+  position: fixed;
+  opacity: 0.8;
+}
+.chag p {
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 15%;
+  margin: 20px;
+  font-size: 18px;
+  font-family: YouYuan;
+  color: white;
+}
+.ips {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  background-color: black;
+  border-radius: 5px;
+  border: 0.5px solid gray;
+  color: aqua;
+  font-size: 15px;
+  font-family: YouYuan;
+}
+.qry {
+  width: 80%;
+  height: 26%;
+  /* background-color: green; */
+  margin:0 auto;
+}
+.noo {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  color: aqua;
+  font-family: YouYuan;
+  font-size:18px;
+  line-height:35px;
+  float: left;
+}
+.yess{
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  color:yellowgreen;
+  font-family: YouYuan;
+  font-size:18px;
+  line-height:35px;
+  float: left;
+}

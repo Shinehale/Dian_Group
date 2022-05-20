@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <style>
+    #app {
+      text-align: center;
+      height: 100px;
+      width: 800px;
+      display: flex;
+      line-height: 100px;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+    #left{
+      width: 33.33%;
+      font-size: 20px;
+      background-color: blue;
+      flex: left;
+      font-size: 60px;
+    }
+    #right{
+      width: 33.33%;
+      font-size: 20px;
+      background-color: aqua;
+      font-size: 60px;
+    }
+    #center{
+      width: 33.33%;
+      flex: left;
+      background-color: blueviolet;
+      font-size: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="left" @click="add()"> + </div>
+    <div id="center">
+      {{sum}}
+    </div>
+    <div id="right" @click="minus()"> - </div>
+  </div>
+</body>
+<script>
+  var app5=new Vue({
+    el : "#app",
+    data : {
+      sum: 0
+    },
+    methods: {
+      add:function() {
+        this.sum=this.sum+1;
+      },
+      minus:function() {
+        this.sum=this.sum-1;
+      }
+    }
+  });
+</script>
+</html>

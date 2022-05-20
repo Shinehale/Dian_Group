@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+
+<html> 
+    <head> 
+        <meta charset="utf-8">
+        <title>点击文字弹出一个DIV层窗口代码</title> 
+        <style> 
+        
+    </style> 
+    </head> 
+    <body> 
+        <p>示例弹出层：<a href = "JavaScript:void(0)" onclick = "openDialog()">请点这里</a></p> 
+        <div id="light" class="white_content">
+            
+            <a href=>点这里关闭本窗口</a>
+        </div> 
+        <div id="fade" class="black_overlay"></div> 
+    </body> 
+    <script type="text/javascript">
+        
+        function openDialog(){
+            document.getElementById('light').style.display='block';
+            document.getElementById('fade').style.display='block'
+        }
+        function closeDialog(){
+            document.getElementById('light').style.display='none';
+            document.getElementById('fade').style.display='none'
+        }
+    </script>
+</html>

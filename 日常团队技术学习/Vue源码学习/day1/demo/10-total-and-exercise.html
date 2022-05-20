@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <div>{{firstValue}}</div>
+        <div>{{secondValue.next}}</div>
+        <div class="theNames">
+            <ul>
+                <li title="data structure">数据结构</li>
+                <li title="discrete mathematics">离散数学</li>
+                <li title="Higher algebra">高等代数</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function MyVue(options){
+            this._el=options.el;
+            this._data=options.data;
+            this.$el=document.querySelector(this._el);
+
+            this._templateDOM=this.$el;
+            this._nowNode = this._templateDOM;
+            this._parent=this.$el.parentNode;
+
+            this.render()
+        };
+
+        function getReplaceValue( path, obj){
+            let paths = path.split('.');
+            let props;
+            let res = obj;
+            while ( props = paths.shift() ){
+                // console.log(value);
+                res = res[ props ];
+            }
+            return res;
+
+        }
+
+        function complie ( template, data ){
+            let R = /\{\{(.+?)\}\}/g; 
+            let childNodes = template.childNodes;
+            for (let i=0;i < childNodes.length;i++){
+                let type = childNodes[i].nodeType;
+                if ( type === 3 ){
+                    let txt = childNodes[i].nodeValue;
+                    txt = txt.replace( R, function( _, g) {
+                        let key = g.trim();
+                        let value = getReplaceValue( g, data );
+                        return value;
+                    });
+                    childNodes[i].nodeValue = txt;
+                }else if (type === 1){
+                    complie( childNodes[i] , data);
+                }
+            }
+        }
+
+        MyVue.prototype.render = function(){// out the class code the function 
+            this.compiler();
+        }
+        MyVue.prototype.compiler = function (){
+            let realHTMLDOM = this._templateDOM.cloneNode(true);
+            complie(realHTMLDOM,this._data);
+            this.update(realHTMLDOM);
+        }
+        MyVue.prototype.update = function ( real ){
+            this._parent.replaceChild(real,this._nowNode);
+            this._nowNode=real;
+        }
+        // 生成一个实例
+        let app = new MyVue({
+            el:'#root',
+            data:{
+                firstValue : "data structure",
+                secondValue : {
+                    next : "discrete mathematics"
+                },
+            }
+        })
+    </script>
+</body>
+</html>

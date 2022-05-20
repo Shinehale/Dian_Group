@@ -1,0 +1,65 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3054800",
+      "name": "更换背景",
+      "font_class": "genghuanbeijing",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "5431179",
+      "name": "吐槽一下",
+      "font_class": "tucaoyixia",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "12548834",
+      "name": "课程",
+      "font_class": "kecheng-",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "16921549",
+      "name": "关于",
+      "font_class": "guanyu",
+      "unicode": "e7e8",
+      "unicode_decimal": 59368
+    },
+    {
+      "icon_id": "20266225",
+      "name": "问题",
+      "font_class": "wenti",
+      "unicode": "e6e2",
+      "unicode_decimal": 59106
+    },
+    {
+      "icon_id": "23034126",
+      "name": "时钟",
+      "font_class": "shizhong",
+      "unicode": "e8c3",
+      "unicode_decimal": 59587
+    },
+    {
+      "icon_id": "24589334",
+      "name": "学习记录、历史记录、时间",
+      "font_class": "a-xuexijilulishijilushijian",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "24660854",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e6d2",
+      "unicode_decimal": 59090
+    }
+  ]
+}

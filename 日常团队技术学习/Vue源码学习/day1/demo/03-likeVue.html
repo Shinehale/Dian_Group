@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 写模板 -->
+    <div id="root">
+        <p>{{name}}</p>
+        <p>{{message}}</p>
+    </div>
+
+    <script>
+        console.log(root);
+        let rbrace= /\{\{(.+?)\}\}/g;
+
+        // 步骤拆解：
+        // 1.拿到模板
+        // 2.拿到数据 ( data ) 
+        // 3.将数据与模板结合，得到的是 HTML 元素 ( DOM ) 元素
+        // 4. 放到页面中
+
+
+        // 1. 拿到模板
+        let tmpNode= document.querySelector('#root');//元素拿到了,模板就拿到了
+        // 2. 拿到数据 ( data ) 
+        let data={
+            name:'一个新的name',
+            message:'一个消息'
+        };
+        // 3将数据放进模板中
+        // 一般使用recursive, 队列
+        // 在当下这个案例中,template 是 DOM 元素
+        // 在真正的Vue源码中是 DOM -> 字符串 -> VNode -> 真正的 DOM 
+        function compiler(template,data){
+            let childNodes = template.childNodes;
+
+            for (let i = 0; i < childNodes.length; i++){
+                let type = childNodes[i].nodeType;// 1 元素 3 文本节点
+               
+                if (type === 3) {
+                    //文本结点，可以判断里面是否有{{}}插值
+                    let txt=childNodes[i].nodeValue;// 该属性只有文本结点才有意义
+                    // 有没有双花括号{{}}
+                    txt = txt.replace(rbrace,function(_,g) {// replace 使用正则匹配一次，函数就会被调用一次
+                                                     // 函数的 第 0 个参数 表示匹配到的内容
+                                                     // 函数的 第 n 个参数 表示正则中的第 n 组
+                        let key = g.trim();// tirm 函数将字符串中的原来的值前后空格消除
+                        let value = data[key];
+                        // 将{{xxx}}用这个值替换
+                        return value;
+
+                    } );
+                    // 注意: txt 现在和Dom元素是没有关系的
+                    childNodes[i].nodeValue=txt;
+                }
+                else if (type === 1){
+                    // 元素， 考虑它有没有子元素，是否需要将其子元素进行判断是否要插值
+                    compiler(childNodes[i],data);
+                }
+            } 
+        }
+        
+        // 利用 模板生成一个 需要被渲染器的 HTML 标签 (准 真正在页面中显示的标签)
+
+        let generateNode = tmpNode.cloneNode(true);// 这里是DOM元素，可以这么用
+        console.log(tmpNode);
+        compiler(generateNode,data);// 将 坑 替换掉
+        console.log(generateNode);
+
+        // 我们此时是没有生成新的template ，所以这里看到的是直接在页面中就更新的数据，因为DOM是引用类型
+        // 这样做 模板就将不存在
+
+        //4. 将渲染好的HTML加载到页面当中
+
+        root.parentNode.replaceChild(generateNode,root);
+
+        // 上面思路有很大问题:
+        // 1. Vue使用的是虚拟DOM
+        // 2. 只考虑到了 单属性 ({{name}}) ,而Vue中大量使用层级 ({{child,name.firstName}})
+        // 3. 代码没有整合
+    </script>
+</body>
+</html>

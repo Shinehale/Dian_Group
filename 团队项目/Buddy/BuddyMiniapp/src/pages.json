@@ -1,0 +1,104 @@
+{
+    "pages": [
+        {
+            "path": "pages/index"
+        },
+        {
+            "path": "pages/testLogin"
+        },
+        {
+            "path": "pages/manualcheck"
+        },
+        {
+            "path": "pages/usercheck"
+        },
+        {
+            "path": "pages/register"
+        },
+        {
+            "path": "pages/home",
+            "style": {
+                "onReachBottomDistance": 20,
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/notification/detail"
+        },
+        {
+            "path": "pages/notification/system"
+        },
+        {
+            "path": "pages/notification/systemDetail"
+        },
+        {
+            "path": "pages/aboutThisSmallProgram"
+        },
+        {
+            "path": "pages/feedbackAndSuggestions"
+        },
+        {
+            "path": "pages/personalInfoDetail"
+        },
+        {
+            "path": "pages/applyToBeBuddy"
+        },
+        {
+            "path": "pages/instructionsForUse"
+        },
+        {
+            "path": "pages/text-book"
+        },
+        {
+            "path": "pages/Newtextpage"
+        },
+        {
+            "path": "pages/servedpage"
+        },
+        {
+            "path": "pages/relink"
+        },
+        {
+            "path": "pages/delete"
+        },
+        {
+            "path": "pages/buddyInfoDetail"
+        },
+        {
+            "path": "pages/NewbieInfoDetail"
+        },
+        {
+            "path": "pages/personality"
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "Buddy",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#F8F8F8",
+        "usingComponents": {
+            "van-button": "/wxcomponents/vant/dist/button/index",
+            "van-tabbar": "/wxcomponents/vant/dist/tabbar/index",
+            "van-tabbar-item": "/wxcomponents/vant/dist/tabbar-item/index",
+            "van-icon": "/wxcomponents/vant/dist/icon/index",
+            "van-search": "/wxcomponents/vant/dist/search/index",
+            "van-cell": "/wxcomponents/vant/dist/cell/index",
+            "van-popup": "/wxcomponents/vant/dist/popup/index",
+            "van-datetime-picker": "/wxcomponents/vant/dist/datetime-picker/index",
+            "van-picker": "/wxcomponents/vant/dist/picker/index",
+            "van-tag": "/wxcomponents/vant/dist/tag/index",
+            "van-radio": "/wxcomponents/vant/dist/radio/index",
+            "van-radio-group": "/wxcomponents/vant/dist/radio-group/index",
+            "van-checkbox": "/wxcomponents/vant/dist/checkbox/index",
+            "van-checkbox-group": "/wxcomponents/vant/dist/checkbox-group/index",
+            "van-area": "/wxcomponents/vant/dist/area/index",
+            "van-field": "/wxcomponents/vant/dist/field/index",
+            "van-toast": "/wxcomponents/vant/dist/toast/index",
+            "van-dialog": "/wxcomponents/vant/dist/dialog/index",
+            "van-divider": "/wxcomponents/vant/dist/divider/index",
+            "van-uploader": "/wxcomponents/vant/dist/uploader/index",
+            "van-dropdown-menu": "/wxcomponents/vant/dist/dropdown-menu/index",
+            "van-dropdown-item": "/wxcomponents/vant/dist/dropdown-item/index"
+        }
+    }
+}

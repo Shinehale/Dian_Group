@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getValueByPath( obj, path ){
+            let paths = path.split( '.' );
+            // 先 取得 obj.xxx, 再取得结果中的 yyy ,再取得结果中的 zzz 
+            let res=obj;
+            let prop;
+            while ( prop=paths.shift() ){ //shift() 数组方法，取得数组[0] 的元素，并且从数组中删除
+                res = res[prop];
+            }
+            return res;
+        }
+        let o = { 
+            a : {
+                b : {
+                    c: {
+                        d: {
+                            e: '找到了'
+                        }
+                    }
+                }
+            }
+        };
+        let res1= getValueByPath(o,'a.b.c.d.e');
+        let res2= getValueByPath(o,'a.b.c');
+        console.log(res1)
+        console.log(res2);
+    </script>
+</body>
+</html>

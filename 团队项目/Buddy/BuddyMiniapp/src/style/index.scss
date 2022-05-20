@@ -1,0 +1,32 @@
+/*
+ * @Author       : GuoXu
+ * @Date         : 2021-12-19 21:37:23
+ * @LastEditors  : GuoXu
+ * @LastEditTime : 2021-12-23 15:45:51
+ * @Description  : 统一管理使用频率频繁的样式
+ * @FilePath     : \BuddyMiniapp\src\style\index.scss
+ */
+
+$white: #fff;
+
+// 主题色
+$BuddyMiniApp-color-primary: #1989fa;
+// 背景色
+$BuddyMiniApp-bg-color-primary: #f8f8f8;
+// 分割线颜色
+$BuddyMiniApp-divider-color: #f6f6f6;
+// 单元格行尾，箭头之前的文字的颜色
+$BuddyMiniApp-cell-start-color: #7f7f7f;
+// 单元格行首文字的颜色
+$BuddyMiniApp-cell-end-color: #191919;
+// 弹出层头部取消颜色
+$action-sheet-cancel-color: #969799;
+// 弹出层头部确认颜色
+$action-sheet-confirm-color: #576b95;
+// 弹出层遮罩颜色
+$action-sheet-mask-color: rgba(0, 0, 0, 0.4);
+
+// 头像宽度和高度
+$width-avatar-mine: 90px;
+// 头像高度
+$height-avatar-mine: 90px;

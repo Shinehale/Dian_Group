@@ -1,0 +1,122 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url(/img/beijing.jpg);
+  background-size: cover;
+}
+#setup {
+  width: 100%;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+#op {
+  display: none;
+  width: 100%;
+  height: 370px;
+  background-color: black;
+  opacity: 0.0;
+  z-index: 1000;
+  float: left;
+}
+#light {
+  display: none;
+  width: 100%;
+  height: 270px;
+  z-index: 1001;
+  float: left;
+}
+#light #box1{
+  width: 86%;
+  height: 60%;
+  background-color:white;
+  margin-left: 7%;
+  margin-right : 7%;
+  opacity: 0.9;
+  border-radius: 15px;
+  overflow: hidden;
+}
+#box1 .week {
+  overflow: auto;
+  margin-top: 3%;
+}
+#box1 .week p{
+  width: 40%;
+  font-size: 15px;
+  font-family:STXingkai;
+  height: 15%;
+  margin-left:5%;
+  margin-right:5%;
+  margin-top: 10px;
+}
+ .p1 {
+  color: black;
+  text-align: left;
+  float: left;
+}
+.p2 {
+  color: #CF768C;
+  text-align: right;
+  float: right;
+}
+#light #box1 .box_ {
+  width: 80%;
+  height: 10%;
+  margin: 5% 10% 5px 10%;
+}
+.box_  img{
+  width: 100%;
+  height: 100%;
+}
+
+#box1 .muti p{
+  width: 40%;
+  font-size: 15px;
+  font-family:STXingkai;
+  height: 15%;
+  margin-left:5%;
+  margin-right:5%;
+  margin-top: 5%;
+}
+.boxes {
+  width: 80%;
+  height: 25%;
+  margin: auto;
+}
+.boxes img {
+  width: 15%;
+  height: 100%;
+  float: left;
+}
+#light #box2 {
+  width: 86%;
+  height: 35%;
+  overflow: auto;
+  margin: 5% 7% 0 7%;
+  border-radius: 15px;
+  background-color:white;
+  opacity: 0.9;
+}
+#box2 .tubiao {
+  width: 25%;
+  height: 50%;
+  float: left;
+}
+.tubiao img {
+  width: 80%;
+  height: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+  float: left;
+}
+.tubiao p {
+  text-align: center;
+  display: inline-block;
+  font-family: STXingkai;;
+  line-height: 25%;
+  color: gray;
+}

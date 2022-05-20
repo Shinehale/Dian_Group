@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#app{
+			width: 400px;
+			height: 400px;
+			background-color: aqua;
+			display: flex;
+		}
+		.headers{
+			width: 100%;
+			height: 25%;
+			background-color: red;
+			text-align: center;
+			font-size: 50px;
+			font-weight: 700;
+			font-style: YouYuan;
+			flex: left;
+		}
+		#main{
+			width: 100%;
+			height: 25%;
+			background-color: black;
+		}
+		.input{
+			width: 100%;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div class="headers" v-text="headers_text"></div>
+			<div id="main">
+				<div class="add_">
+					<input type="text" class="input" value="Input new item" />
+				</div>
+				<div v-for="one in arr" class="new">
+					hahah 
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let app= new Vue({
+			el:"#app",
+			data: {
+				total:0,
+				headers_text:"小黑记事本",
+				arr:[],
+			}
+		})
+	</script>
+</html>

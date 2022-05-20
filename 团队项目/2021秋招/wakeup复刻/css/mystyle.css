@@ -1,0 +1,77 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-image: url(/img/beijing.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.budong-1 {
+	width: 100%;
+	height: auto;
+	position: fixed; 
+	background-image: url(/img/beijing.jpg);
+	background-repeat: no-repeat ;
+	background-size: cover;
+	overflow: auto;
+	z-index: 1000;
+}
+.kong-2 {
+	width: 100%;
+	height: 130px;
+	overflow: auto;
+}
+#kong {
+	width: 100%;
+	height: 30px;
+	/* background-color: aqua; */
+}
+#header {
+	width: 100%;
+	height: 50px;
+	/* background-color: antiquewhite; */
+	z-index: 12;
+}
+#header #kong_ {
+	width: 35%;
+	height: 100%;
+	/* background-color: #FF0000; */
+	float : left;
+	display: inline;
+}
+#button {
+	width: 125px;
+	height: 100%;
+	display: inline;
+	float: left ;
+}
+#button a img {
+	width: 20%;
+	height: 100%;
+	float:left;
+	margin: 2.5%;
+}
+
+#boddy {
+	width:100%;
+	height: auto;
+}
+#boddy td {
+	width: 12.5%;
+	height: 50px;
+}
+#fulldate .date {
+	width: 12.5%;
+	height: 80%;
+	display: inline ;
+	float : left;
+	/* background-color: blanchedalmond; */
+	text-align: center;
+	color: grey;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	line-height: 16px;
+	font-size: 8px;
+}

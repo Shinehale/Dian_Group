@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root">
+        <div class="c1">
+            <div title="tt1">{{name}}</div>
+            <div title="tt2">{{message}}</div>
+            <div title="tt3">{{queto.text}}</div>
+        </div>
+    </div>
+
+
+    <script>
+
+        /**
+         * 生成虚拟 DOM 的类
+        */
+        class VNode{
+            constructor( tag, data, value, type ){
+                this.tag=tag && tag.toLowerCase();
+                this.data = data;
+                this.value = value;
+                this.type = type;
+                this.children = [];
+            }
+            appendChild( vnode ){
+                this.children.push( vnode );
+            }
+        }
+
+        /** 由 HTML DOM 生成虚拟DOM */
+        function createVNode( node ){
+            let nodeType =  node.nodeType;
+            let _vnode = null;
+            if (nodeType === 1){
+                // 元素
+                let nodeName = node.nodeName;
+                let attrs = node.attributes;
+                let _attrObj = {};
+                for ( let i = 0; i< attrs.length; i++ ){
+                    _attrObj[attrs[i].nodeName]=attrs[i].nodeValue;
+                }
+                _vnode = new VNode ( nodeName, _attrObj, undefined, nodeType );
+
+                // 考虑 node 的子元素 
+
+                let childNodes = node.childNodes;
+                for (let i=0; i<childNodes.length; i++){
+                    _vnode.appendChild(createVNode(childNodes[i]) );// 递归
+                }
+
+            }else if  (nodeType === 3 ){
+                _vnode = new VNode(undefined, undefined, node.nodeValue,nodeType);
+            }
+            return _vnode;
+        }
+
+
+        function HaleVue( options ){
+            this._data = options.data;
+            this._template = document.querySelector( options.el );
+            this.mount();
+        }
+
+        
+        function getValueByPaths( Tar, object){
+            let res = object;
+            let paths = Tar.split(".");
+            let pos;
+            while ( pos = paths.shift()){
+                res =  res[pos];
+            }
+            return res;
+        }
+        let rbrace = /\{\{(.+?)\}\}/g;
+        /** 
+         * combine 函数 将 数据 同 模板结合
+        */ 
+        function combine ( Vnode, data){
+            let _children = Vnode.children;
+            let _nodeName = Vnode.tag;
+            let _value = Vnode.value;
+            let _type = Vnode.type;
+            let _data = Vnode.data;
+            
+            let _newNode = null;
+            if ( _type === 1){// 说明是结点元素
+                _newNode = new VNode (_nodeName, _data, undefined, _type);
+                _children.forEach( ele => {
+                    let child = combine( ele, data);
+                    _newNode.appendChild(child);
+                });
+            }else if ( _type === 3 ){
+                let txt = _value;
+                txt = txt.replace( rbrace, (_,g) => {
+                    let value = getValueByPaths( g, data);
+                    return value;
+                });
+                _newNode = new VNode (undefined, undefined, txt, _type);
+            }
+            return _newNode;
+        }
+        /**
+         * DomNode 函数 将VNode 转换成真正的DOM元素
+        */function DomNode( Vnode){
+           let _type = Vnode.type;
+           let _nodeName = Vnode.tag;
+           let _data = Vnode.data;
+           let _children = Vnode.children;
+           let _value = Vnode.value;
+           let newNode = null;
+           if ( _type === 1) {// 当前结点是 元素
+                newNode = document.createElement( _nodeName );
+                Object.keys(_data).forEach( ( key ) => {
+                    newNode.setAttribute( key, _data[key] );
+                } )
+                _children.forEach( ( ele ) => {
+                    let childNode = DomNode( ele );
+                    newNode.appendChild( childNode );
+                } )
+           } else if ( _type ===  3) {// 当前结点是文本结点
+                newNode = document.createTextNode( _value );
+           }
+           return newNode;
+       }
+
+        HaleVue.prototype.mount = function () {
+            // 需要函数完成数据渲染的情况
+            this.render = this.createRenderFn();
+            this._afterAst = this.render();
+            // 需要提供一个render 方法： 生成虚拟 DOM
+            this.mountComponent(); 
+        }
+
+        HaleVue.prototype.mountComponent = function ( ) {
+            // 执行 mountComponent() 函数
+            let mount = () => {
+                this.update( this.render() )
+            }
+            mount.call( this );// 本质应该交给watcher 来调用
+        }
+        
+        /**
+         * 在真正的 Vue 中使用了 二次提交 的设计结构
+         * 1. 在 页面中 DOM 和 虚拟DOM 是一一对应的关系
+         * 2. 先 由AST 和数据生成 VNode (新 , render )
+         * 3. 将 新的Vnode 和新的 VNode  比较 ( diff ), 更新 ( update ) 
+        */
+
+        // 这里是生成 render 函数, 目的是 缓存抽象语法树 ( 我们使用 虚拟DOM 来模拟 )
+        HaleVue.prototype.createRenderFn = function () {
+
+            let ast = createVNode( this._template )
+
+            // Vue: 将 AST + data => VNode 
+            // 我们：带有坑的 VNode + data => 含有数据的VNode
+
+            return function render () {
+                // 将坑 VNode 转换成 带数据的 VNode
+                let _tmp = combine( ast, this._data);
+                return _tmp;
+            }
+        }
+        HaleVue.prototype.update = function ( ){
+            this._parent = this._template.parentNode;
+            let newRoot = DomNode(this._afterAst);
+            this._parent.replaceChild(newRoot,this._template);
+        }
+
+        let app = new HaleVue ({
+            el : '#root',
+            data : {
+                name : "Hale",
+                message : "push up",
+                queto : {
+                    text : "come on and fighting",
+                },
+            }
+        });
+
+    </script>
+</body>
+</html>

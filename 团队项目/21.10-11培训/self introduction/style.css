@@ -1,0 +1,138 @@
+*{
+  margin: 0;
+  padding:0;
+}
+body {
+  background-image: url('./image/back.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+.header{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 45px;
+  color: aqua;
+  font-family: YouYuan;
+}
+.pont {
+  width: 100%;
+  height: 600px;
+  /* background-color: tomato; */
+  position: absolute;
+  box-sizing: border-box;
+}
+.point{
+  width: 20px;
+  height: 20px;
+  background-color:rgb(115, 247, 38);
+  float:left;
+  border-radius: 10px;
+  border-color:white;
+  border-width: 5px;
+  font-size: 20px;
+  overflow: visible;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color:aquamarine;
+}
+#Pnt1 {
+  top: 35%;
+  left: 8%;
+  position: relative;
+}
+#Pnt2 {
+  top: 25%;
+  left: 65%;
+  position: relative;
+}
+#Pnt3 {
+  top: 85%;
+  left: 64%;
+  position: relative;
+}
+#Pnt4 {
+  top: 45%;
+  left: 40%;
+  position: relative;
+}
+#Pnt5 {
+  top: 80%;
+  left: 16%;
+  position: relative;
+}
+#Pnt6 {
+  top: 65%;
+  left: 80%;
+  position: relative;
+}
+.none {
+  display: none;
+  font-family: YouYuan;
+}
+#display1{
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  color: lawngreen;
+  font-size: 40px;
+  position: relative;
+  top: 35%;
+  left: 8%;
+  box-sizing: border-box;
+}
+#display2{
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  color: #7c7535;
+  font-size: 40px;
+  top: 25%;
+  left: 65%;
+  position: relative;
+  box-sizing: border-box;
+}
+#display3{
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  color: #A34F15;
+  font-size: 25px;
+  top: 60%;
+  left: 64%;
+  position: relative;
+  box-sizing: border-box;
+}
+#display4{
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  color: rgba(224, 17, 96, 0.963);
+  font-size: 30px;
+  top: 45%;
+  left: 45%;
+  position: relative;
+  box-sizing: border-box;
+}
+#display5{
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  color: rgb(191, 228, 186);
+  font-size: 20px;
+  top: 70%;
+  left: 22%;
+  position: relative;
+  box-sizing: border-box;
+}
+#display6{
+  width: 170px;
+  height: 70px;
+  text-align: center;
+  color: rgb(207, 238, 82);
+  font-size: 25px;
+  top: 65%;
+  left: 83%;
+  position: relative;
+  box-sizing: border-box;
+}

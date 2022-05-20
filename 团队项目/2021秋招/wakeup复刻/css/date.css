@@ -1,0 +1,112 @@
+#date {
+	width: 25%;
+	height: 90%;
+	color : black;
+	padding-left: 10px;
+	padding-top: 5px;
+	display: inline;
+	float : left;
+	font-size: 14px;
+	text-align: left;
+	line-height: 20px;
+}
+.fulldate {
+  width: 100%;
+  height: 45px;
+  /* background-color: yellow; */
+  overflow: hidden;
+}
+.date_ {
+  width: 12.5%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 5px 0;
+  /* background-color: thistle; */
+  float: left;
+  font-size: 12px;
+  font-family: YouYuan;
+  font-weight: 900;
+  color: gray;
+}
+.date_ p {
+  text-align: center;
+  margin-bottom: 4px;
+}
+.month_ {
+  width: 12.5%;
+  height: 100%;
+  box-sizing: border-box;
+  /* background-color: turquoise; */
+  float: left;
+  font-weight: 700;
+}
+.Month {
+  width: 100%;
+  height: 40%;
+  margin-top: 10%;
+  /* background-color: yellow; */
+  text-align: center;
+  font-size:12px;
+}
+.month_ p {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+  background-color: transparent;
+  text-align: center;
+  font-family: YouYuan;
+}
+.day {
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+  /* background-color: tomato; */
+}
+.get1 {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 10%;
+  height: 10%;
+}
+.get1 img {
+  width: 100%;
+}
+.get2 {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  width: 10%;
+  height: 10%;
+}
+.get2 img {
+  width: 100%;
+}
+.day{
+  text-align: center;
+  margin-top: 10px;
+}
+.wek {
+  width: 100%;
+  height: 40%;
+  font-size: 10px;
+  /* background-color: tomato; */
+}
+.mo {
+  width: 15px;
+  height: 18px;
+  line-height: 18px;
+  /* background-color:black; */
+  display: inline;
+  font-size: 10px;
+  color:black;
+}
+.tag {
+  width: 45%;
+  height: 100%;
+  /* background-color: blue; */
+  display: inline-block;
+  color: black;
+  font-size: 10px;
+}

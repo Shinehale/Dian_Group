@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="http://unpkg.com/axios/dist/axios.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="button" class="get" value="get请求">
+		<input type="button" class="post" value="post请求">
+		<script type="text/javascript">
+			document.querySelector(".get").onclick = function () {
+				axios.get("https://autumnfish.cn/api/joke/list?num=3").then(function(response){
+					console.log(response);
+				})
+			}
+		</script>
+	</body>
+</html>

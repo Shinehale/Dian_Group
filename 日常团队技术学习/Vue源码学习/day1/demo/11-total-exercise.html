@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <div class="c1">
+            <div title="tt1">hello1</div>
+            <div title="tt2">hello2</div>
+            <div title="tt3">hello3</div>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // define a 'VNode' class 
+        class VNode{
+            constructor( tag, data, value, type ){
+                this.tag=tag && tag.toLowerCase();
+                this.data = data;
+                this.value = value;
+                this.type  = type;
+                this.children = [];
+            }
+            appendChild( vnode ){
+                this.children.push( vnode );
+            }
+        }
+
+        // the functuon to create virtual Node using recurtive
+
+        function createVNode( node ){
+            let nodeType = node.nodeType;
+            let _vnode = null;
+            if (nodeType === 1 ){
+                let nodeValue = node.nodeValue;
+                let nodeName = node.nodeName;
+                let attrs = node.attributes;
+                let _attrObj = {};
+                for (let i = 0; i < attrs.length; i++){
+                    _attrObj[attrs[i].nodeName] = attrs[i].nodeValue;
+                }
+
+                _vnode = new VNode( nodeName, _attrObj, nodeValue, nodeType )
+
+
+                let childNodes = node.childNodes;
+                for  (let i = 0;i < childNodes.length; i++){
+                    let node = createVNode(childNodes[i]);
+                    
+                    if (node != undefined) _vnode.appendChild(node);
+                }
+            }else if ( nodeType === 3 ){
+                let nodeValue = node.nodeValue;
+                if (nodeValue.trim().length === 0) {return;}
+                _vnode = new VNode (undefined, undefined, nodeValue, nodeType );
+            }
+            return _vnode;
+        }
+
+        function parseVNode( vnode ){
+            let nodeName = vnode.tag;
+            let nodeValue = vnode.value;
+            let object = vnode.data;
+            let nodeType = vnode.type;
+            let node = null;
+            if (nodeType == 1){
+                node = document.createElement(nodeName);
+                for (let each in object){
+                    node.setAttribute(each,object[each]);
+                }
+                for (let i=0;i<vnode.children.length;i++){
+                    let newNode = parseVNode(vnode.children[i]);
+                    if (newNode != null)  node.appendChild(newNode);
+                }
+            }else if (nodeType == 3){
+                node = document.createElement('txt');
+                node.innerText = nodeValue;
+            }
+            return node;
+        }
+        
+        let root=document.querySelector('#root');
+        let parent=root.parentNode;
+        console.log(root);
+        VRoot = createVNode ( root );
+        let newRoot = parseVNode ( VRoot );
+        parent.replaceChild(newRoot,root);
+        console.log(newRoot);
+    </script>
+</body>
+</html>
